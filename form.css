@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 body{
     text-align: center;
+    font-family: 'Inter', sans-serif;
 }
 h1 {
     width: 100%;
+    color: orange;
+    padding-top: 20px;
 }
 form{
     display: flex;
@@ -16,7 +20,7 @@ input {
     border-radius: 10px;
     border: grey solid;
     padding: 0px 5px;
-    font-size: 20px;
+    font-size: 15px;
 }
 .input-container {
     padding: 10px;
@@ -34,4 +38,7 @@ select {
 }
 select div {
     width: 100%;
+}
+.error {
+    border-color: red;
 }
