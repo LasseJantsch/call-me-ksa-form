@@ -12,190 +12,186 @@
         <h1>
             Call me KSA
         </h1>
-        <form id="form" action="https://knu.dasistjaabsolutnichtmehrinmo.de/post.php" method="post">
+        <hr class="rounded" />
+        <form id="form" name = "form" autocomplete="off" onSubmit="return ValidateActInsert()" action="https://knu.dasistjaabsolutnichtmehrinmo.de/post.php" method="post" >
             <h3 id="error"></h3>
-            <div class="input-container">
+            <div id="first_name_container" class="input-container">
                 <label for="html">First Name</label><br>
                 <input  id="first_name" name="first_name"></input>
             </div>
-            <div class="input-container">
+            <div id="last_name_container" class="input-container">
                 <label for="html">Last Name</label><br>
                 <input id="last_name" name="last_name"></input>
             </div>
-            <div class="input-container">
+            <div id="birthday_container" class="input-container invisible">
                 <label for="html">Birthday</label><br>
                 <input id="birthday" name="birthday"></input>
             </div>
-            <div class="input-container">
+            <div id="nationality_container" class="input-container invisible">
                 <label for="html">Nationality</label><br>
                 <input id="nationality" name="nationality"></input>
             </div>
-            <div class="input-container">
+            <div id="mbti_container" class="input-container invisible">
                 <label for="html">MBTI</label><br>
                 <input id="mbti" name="mbti"></input>
             </div>
-            <div class="input-container">
+            <div id="hobby_container" class="input-container invisible">
                 <label for="html">Hobbys</label><br>
                 <input id="hobby_1" name="hobby_1"></input>
                 <input id="hobby_2" name="hobby_2"></input>
                 <input id="hobby_3" name="hobby_3"></input>
             </div>
-            <div class="input-container">
+            <div id="language_container" class="input-container invisible">
                 <label for="html">Languages</label><br>
                 <input id="language_1" name="language_1"></input>
                 <input id="language_2" name="language_2"></input>
                 <input id="language_3" name="language_3"></input>
             </div>
-            <div class="input-container">
+            <div id="question_1_container" class="input-container invisible">
                 <label for="html">Question 1</label><br>
                 <select name="question_1" id="question_1">
-                    <option value="What is your favorite Halloween Costume?">What is your favorite Halloween Costume?</option>
-                    <option value="What is your favorite Halloween Costume?">What is your favorite Halloween Costume?</option>
-                    <option value="What is your favorite Halloween Costume?">What is your favorite Halloween Costume?</option>
-                    <option value="What is your favorite Halloween Costume?">What is your favorite Halloween Costume?</option>
+                    <option value="1">What is your favorite Halloween Costume?</option>
+                    <option value="2">What is your favorite Halloween Costume?</option>
+                    <option value="3">What is your favorite Halloween Costume?</option>
+                    <option value="4">What is your favorite Halloween Costume?</option>
                 </select>
                 <input id="answer_1" name="answer_1"></input>
             </div>
-            <div class="input-container">
+            <div id="question_2_container" class="input-container invisible">
                 <label for="html">Question 2</label><br>
                 <select name="question_2" id="question_2">
-                    <option value="volvo">Whould you rather fight 100 ducksize <br> horses or one horse size duck</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
+                    <option value="1">Whould you rather fight 100 ducksize <br> horses or one horse size duck</option>
+                    <option value="2">Saab</option>
+                    <option value="3">Mercedes</option>
+                    <option value="4">Audi</option>
                   </select>
                 <input id="answer_2" name="answer_2"></input>
             </div>
-            <div class="input-container">
+            <div id="contact_insta_container" class="input-container invisible">
                 <label for="html">Instagram Id</label><br>
                 <input id="contact_insta" name="contact_insta"></input>
             </div>
-            <div class="input-container">
+            <div id="contact_kakao_container" class="input-container invisible">
                 <label for="html">Kakao Id</label><br>
                 <input id="contact_kakao" name="contact_kakao"></input>
             </div>
-            <div class="input-container">
+            <div id="user_code_container" class="input-container invisible">
                 <label for="html">User Code</label><br>
                 <input id="user_code" name="user_code" value="123456" ></input>
             </div>
-            <button 
-                type="submit">Submit</button>
+            <div class="button_container">
+                <button 
+                    type="button" 
+                    class="invisible"
+                    id="prev_button"
+                    >Previous
+                </button>
+                <button 
+                    type="button" 
+                    id="next_button"
+                    >Next
+                </button>
+                <button 
+                    type="submit" 
+                    class="invisible"
+                    id="submit_button"
+                    >Submit
+                </button>
+            </div>
         </form>
     </div>
     <script>
+
+        // declaration of variables
+        let index = 1;
+
+        // get data from url quary
         const params = new Proxy(new URLSearchParams(window.location.search), {
             get: (searchParams, prop) => searchParams.get(prop),
             });
+
             if(params.error==="true") {
+                console.log(params.error)
                 document.getElementById("error").innerHTML = "The Usercode is already taken";
                 document.getElementById("user_code").className = document.getElementById("user_code").className + " error";
+                document.getElementById("first_name").value = params.first_name
+                document.getElementById("first_name").value = params.first_name
+                document.getElementById("last_name").value = params.last_name
+                document.getElementById("birthday").value = params.birthday
+                document.getElementById("nationality").value = params.nationality
+                document.getElementById("mbti").value = params.mbti
+                document.getElementById("hobby_1").value = params.hobby_1
+                document.getElementById("hobby_2").value = params.hobby_2
+                document.getElementById("hobby_3").value = params.hobby_3
+                document.getElementById("language_1").value = params.language_1
+                document.getElementById("language_2").value = params.language_2
+                document.getElementById("language_3").value = params.language_3
+                document.getElementById("question_1").value = params.question_1
+                document.getElementById("answer_1").value = params.answer_1
+                document.getElementById("question_2").value = params.question_2
+                document.getElementById("answer_2").value = params.answer_2
+                document.getElementById("contact_insta").value = params.contact_insta
+                document.getElementById("contact_kakao").value = params.contact_kakao
+                document.getElementById("user_code").value = params.user_code
             }
-            console.log(params.first_name)
-            document.getElementById("first_name").value = params.first_name
-            document.getElementById("last_name").value = params.last_name
-            document.getElementById("birthday").value = params.birthday
-            document.getElementById("nationality").value = params.nationality
-            document.getElementById("mbti").value = params.mbti
-            document.getElementById("hobby_1").value = params.hobby_1
-            document.getElementById("hobby_2").value = params.hobby_2
-            document.getElementById("hobby_3").value = params.hobby_3
-            document.getElementById("language_1").value = params.language_1
-            document.getElementById("language_2").value = params.language_2
-            document.getElementById("language_3").value = params.language_3
-            document.getElementById("question_1").value = params.question_1
-            document.getElementById("answer_1").value = params.answer_1
-            document.getElementById("question_2").value = params.question_2
-            document.getElementById("answer_2").value = params.answer_2
-            document.getElementById("contact_insta").value = params.contact_insta
-            document.getElementById("contact_kakao").value = params.contact_kakao
-            document.getElementById("user_code").value = params.user_code
 
 
 
-        // function formSubmit(event) {
-        //     console.log("triggered")
-        //     event.preventDefault();
-        //     var url = "https://knu.dasistjaabsolutnichtmehrinmo.de/post.php";
-        //     var request = new XMLHttpRequest();
-        //     request.open('POST', url, true);
-        //     request.setRequestHeader("X-PINGOTHER", "pingpong");
-        //     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        //     request.onload = function() { 
-        //         console.log(request.responseText);
-        //     };
+             //validate inputs
+             function ValidateActInsert(event) {
+                var specialChars = /[^a-zA-Z0-9 ]/g;
+                if (document.form.first_name.value.match(specialChars)) {
+                    // event.prevetnDefault()
+                    alert ("Only characters A-Z, a-z and 0-9 are allowed!")
+                    document.form.first_name.focus();
+                    return false;
+                }
+                return (true);
+            }   
 
-        //     request.onerror = function(error) {
-        //         console.log(error)
-        //     };
+            //handles changing index
+            function handleDOMChanges(index) {
+                index === 1 ? document.getElementById("first_name_container").className = "input-container" :  document.getElementById("first_name_container").className = document.getElementById("first_name_container").className + " invisible"
+                index === 1 ? document.getElementById("last_name_container").className = "input-container" :  document.getElementById("last_name_container").className = document.getElementById("last_name_container").className + " invisible"
+                index === 2 ? document.getElementById("birthday_container").className = "input-container" :  document.getElementById("birthday_container").className = document.getElementById("birthday_container").className + " invisible"
+                index === 2? document.getElementById("nationality_container").className = "input-container" :  document.getElementById("nationality_container").className = document.getElementById("nationality_container").className + " invisible"
+                index === 2 ? document.getElementById("mbti_container").className = "input-container" :  document.getElementById("mbti_container").className = document.getElementById("mbti_container").className + " invisible"
+                index === 3 ? document.getElementById("hobby_container").className = "input-container" :  document.getElementById("hobby_container").className = document.getElementById("hobby_container").className + " invisible"
+                index === 3 ? document.getElementById("language_container").className = "input-container" :  document.getElementById("language_container").className = document.getElementById("language_container").className + " invisible"
+                index === 4 ? document.getElementById("question_1_container").className = "input-container" :  document.getElementById("question_1_container").className = document.getElementById("question_1_container").className + " invisible"
+                index === 4 ? document.getElementById("question_2_container").className = "input-container" :  document.getElementById("question_2_container").className = document.getElementById("question_2_container").className + " invisible"
+                index === 5 ? document.getElementById("contact_insta_container").className = "input-container" :  document.getElementById("contact_insta_container").className = document.getElementById("contact_insta_container").className + " invisible"
+                index === 5 ? document.getElementById("contact_kakao_container").className = "input-container" :  document.getElementById("contact_kakao_container").className = document.getElementById("contact_kakao_container").className + " invisible"
+                index === 6 ? document.getElementById("user_code_container").className = "input-container" : document.getElementById("user_code_container").className = document.getElementById("user_code_container").className + " invisible"
+                index !== 1 ? document.getElementById("prev_button").className = "" :  document.getElementById("prev_button").className = document.getElementById("prev_button").className + " invisible"
+                index !== 6 ? document.getElementById("next_button").className = "" :  document.getElementById("next_button").className = document.getElementById("next_button").className + " invisible"
+                index === 6 ? document.getElementById("submit_button").className = "" :  document.getElementById("submit_button").className = document.getElementById("submit_button").className + " invisible"
+            }
+            
+            //navigate throug profile
+            function handleNext(event) {
+                event.preventDefault()
+                  index = index + 1
+                handleDOMChanges(index)
+                console.log(index)
+                return null
+            }
 
-        //     request.send(new FormData(event.target));
-        // }
+            document.getElementById("next_button").addEventListener("click", handleNext, false)
+            
+            function handlePrevious(event) {
+                event.preventDefault()
+                index--
+                handleDOMChanges(index)
+                console.log(index)
+                return null
+            }
 
-        // Example POST method implementation:
-        // async function postData(event = {}) {
-        // // Default options are marked with *
-        //     const data = {
-        //             [event.target[0].name.toString()]: event.target[0].value.toString(),
-        //             [event.target[1].name.toString()]: event.target[1].value.toString(),
-        //             [event.target[2].name.toString()]: event.target[2].value.toString(),
-        //             [event.target[3].name.toString()]: event.target[3].value.toString(),
-        //             [event.target[4].name.toString()]: event.target[4].value.toString(),
-        //             [event.target[5].name.toString()]: event.target[5].value.toString(),
-        //             [event.target[6].name.toString()]: event.target[6].value.toString(),
-        //             [event.target[7].name.toString()]: event.target[7].value.toString(),
-        //             [event.target[8].name.toString()]: event.target[8].value.toString(),
-        //             [event.target[9].name.toString()]: event.target[9].value.toString(),
-        //             [event.target[10].name.toString()]: event.target[10].value.toString(),
-        //             [event.target[11].name.toString()]: event.target[11].value.toString(),
-        //             [event.target[12].name.toString()]: event.target[12].value.toString(),
-        //             [event.target[13].name.toString()]: event.target[13].value.toString(),
-        //             [event.target[14].name.toString()]: event.target[14].value.toString(),
+            document.getElementById("prev_button").addEventListener("click", handlePrevious, false)
 
-        //     }
-        //     console.log(data)
-        //     console.log(new URLSearchParams(data))
-        //     event.preventDefault();
-        //     const response = await fetch('https://knu.dasistjaabsolutnichtmehrinmo.de/post.php', {
-        //         method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        //         mode: 'no-cors', // no-cors, *cors, same-origin
-        //         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        //         credentials: 'same-origin', // include, *same-origin, omit
-        //         headers: {
-        //         //'Content-Type': 'application/json'
-        //         'Content-Type': 'application/x-www-form-urlencoded',
-        //         },
-        //         redirect: 'follow', // manual, *follow, error
-        //         referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        //         body: new URLSearchParams({
-        //             [event.target[0].name]: event.target[0].value,
-        //             [event.target[1].name]: event.target[1].value,
-        //             [event.target[2].name]: event.target[2].value,
-        //             [event.target[3].name]: event.target[3].value,
-        //             [event.target[4].name]: event.target[4].value,
-        //             [event.target[5].name]: event.target[5].value,
-        //             [event.target[6].name]: event.target[6].value,
-        //             [event.target[7].name]: event.target[7].value,
-        //             [event.target[8].name]: event.target[8].value,
-        //             [event.target[9].name]: event.target[9].value,
-        //             [event.target[10].name]: event.target[10].value,
-        //             [event.target[11].name]: event.target[11].value,
-        //             [event.target[12].name]: event.target[12].value,
-        //             [event.target[13].name]: event.target[13].value,
-        //             [event.target[14].name]: event.target[14].value,
-        //         }) // body data type must match "Content-Type" header
-        //     });
-        // return response.json(); // parses JSON response into native JavaScript objects
-        // }
 
-        // postData(event)
-        // .then((data) => {
-        //     console.log(data); // JSON data parsed by `data.json()` call
-        // });
 
-        // // and you can attach form submit event like this for example
-        // document.getElementById("form").addEventListener("submit", postData);
-   
-
+       
     </script>
 </body>
 </html>

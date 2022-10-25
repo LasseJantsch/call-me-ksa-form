@@ -7,6 +7,15 @@ h1 {
     width: 100%;
     color: orange;
     padding-top: 20px;
+    margin-bottom: 10px;
+}
+
+hr {
+    height: 5px;
+    background-color: orange;
+    border: none;
+    border-radius: 3px;
+    width: 80%;
 }
 form{
     display: flex;
@@ -36,9 +45,41 @@ select {
     padding: 0px 5px;
     font-size: 15px;
 }
+.button_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    width: 120px;
+    height: 50px;
+    margin: 10px 10px 10px;
+    border: none;
+    border-radius:25px;
+    padding: 0px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: orange;
+    color: white;
+}
+button:hover {
+    background-color: rgb(229, 149, 0); 
+}
+
 select div {
     width: 100%;
 }
 .error {
-    border-color: red;
+    border-color: red !important;
+}
+
+.invisible {
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+    margin: 0;
+    padding: 0;
+    z-index: -1;
 }
