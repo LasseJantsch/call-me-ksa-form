@@ -150,46 +150,6 @@
             get: (searchParams, prop) => searchParams.get(prop),
             });
 
-            if(params.error==="true") {
-                console.log(params.error)
-                document.getElementById("error").innerHTML = "The Usercode is already taken";
-                document.getElementById("error").className = "";
-                document.getElementById("user_code").className = document.getElementById("user_code").className + " error";
-                document.getElementById("first_name").value = params.first_name
-                document.getElementById("first_name").value = params.first_name
-                document.getElementById("last_name").value = params.last_name
-                document.getElementById("birthday").value = params.birthday
-                document.getElementById("nationality").value = params.nationality
-                document.getElementById("mbti").value = params.mbti
-                document.getElementById("hobby_1").value = params.hobby_1
-                document.getElementById("hobby_2").value = params.hobby_2
-                document.getElementById("hobby_3").value = params.hobby_3
-                document.getElementById("language_1").value = params.language_1
-                document.getElementById("language_2").value = params.language_2
-                document.getElementById("language_3").value = params.language_3
-                document.getElementById("question_1").value = params.question_1
-                document.getElementById("answer_1").value = params.answer_1
-                document.getElementById("question_2").value = params.question_2
-                document.getElementById("answer_2").value = params.answer_2
-                document.getElementById("contact_insta").value = params.contact_insta
-                document.getElementById("contact_kakao").value = params.contact_kakao
-                document.getElementById("user_code").value = params.user_code
-            }
-
-
-
-             //validate inputs
-             function ValidateActInsert(event) {
-                var specialChars = /[^a-zA-Z0-9 ]/g;
-                if (document.form.first_name.value.match(specialChars)) {
-                    // event.prevetnDefault()
-                    alert ("Only characters A-Z, a-z and 0-9 are allowed!")
-                    document.form.first_name.focus();
-                    return false;
-                }
-                return (true);
-            }
-
             //handles changing index
             function handleDOMChanges(index) {
                 index === 0 ? document.getElementById("welcome_container").className = "welcome_container" :  document.getElementById("welcome_container").className = document.getElementById("welcome_container").className + " invisible"
@@ -211,8 +171,47 @@
                 index === 5 ? document.getElementById("submit_button").className = "" :  document.getElementById("submit_button").className = document.getElementById("submit_button").className + " invisible"
             }
 
+            function setProgressBar(index) {
+                document.getElementById("progress_done").style.width = `${index*18+5}%`
+                document.getElementById("progress_up").style.width = `${100-(index*18+5)}%`
+            }
+
+
+            if(params.error==="true") {
+                console.log(params.error)
+                document.getElementById("error").innerHTML = "The Usercode is already taken";
+                document.getElementById("error").className = "";
+                index = 5
+                handleDOMChanges(index)
+                setProgressBar(index)
+                document.getElementById("user_code").className = document.getElementById("user_code").className + " error";
+                document.getElementById("first_name").value = params.first_name
+                document.getElementById("first_name").value = params.first_name
+                document.getElementById("last_name").value = params.last_name
+                document.getElementById("birthday").value = params.birthday
+                document.getElementById("nationality").value === "Korean" ? document.getElementById("korean_checkbox").checked = true : document.getElementById("international_checkbox").checked =false
+                document.getElementById("nationality").value = params.nationality
+                document.getElementById("mbti").value = params.mbti
+                document.getElementById("hobby_1").value = params.hobby_1
+                document.getElementById("hobby_2").value = params.hobby_2
+                document.getElementById("hobby_3").value = params.hobby_3
+                document.getElementById("language_1").value = params.language_1
+                document.getElementById("language_2").value = params.language_2
+                document.getElementById("language_3").value = params.language_3
+                document.getElementById("question_1").value = params.question_1
+                document.getElementById("answer_1").value = params.answer_1
+                document.getElementById("question_2").value = params.question_2
+                document.getElementById("answer_2").value = params.answer_2
+                document.getElementById("contact_insta").value = params.contact_insta
+                document.getElementById("contact_kakao").value = params.contact_kakao
+                document.getElementById("user_code").value = params.user_code
+            }
+
+
+
+             //validate inputs
             function validateInputValues(id){
-                var specialChars = /[^a-zA-Z0-9.,-_ ]/g;
+                var specialChars = /[^a-zA-Z0-9.,-_가-힣]/g;
                 if(document.getElementById(id).value.match(specialChars)){
                     document.getElementById(id).className = document.getElementById(id).className + " error"
                     document.getElementById(id).focus()
@@ -314,7 +313,19 @@
                 if(index === 1) {
                     if(validateFieldFilled("last_name") === false) result = false
                     if(validateFieldFilled("first_name") === false) result = false
-                    if(document.getElementById("korean_checkbox").checked  === false && document.getElementById("nationality").value === "Korean") result = false
+                    if(validateFieldFilled("nationality") === false) result = false
+                    if(document.getElementById("korean_checkbox").checked  === false && document.getElementById("international_checkbox").checked === false) {
+                        document.getElementById("korean_checkbox").className = document.getElementById("korean_checkbox").className + " error"
+                        document.getElementById("korean_checkbox").focus()
+                        document.getElementById("international_checkbox").className = document.getElementById("international_checkbox").className + " error"
+                        document.getElementById("international_checkbox").focus()
+
+                        return false
+                    }else if (document.getElementById("korean_checkbox").className.includes("error")) {
+                        document.getElementById("international_checkbox").classList.remove("error")
+                        document.getElementById("korean_checkbox").classList.remove("error")
+                        document.getElementById("error").className = "invisible";
+                    }
                 }
                 if(index === 4) {
                     if(validateFieldFilled("contact_insta") === false && validateFieldFilled("contact_kakao") === false) result = false
@@ -322,10 +333,7 @@
                 return result
             }
 
-            function setProgressBar(index) {
-                document.getElementById("progress_done").style.width = `${index*18+5}%`
-                document.getElementById("progress_up").style.width = `${100-(index*18+5)}%`
-            }
+
 
             //navigate throug profile
             function handleNext(event) {
