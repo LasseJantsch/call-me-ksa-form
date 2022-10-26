@@ -4,98 +4,120 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Call Me KSA Form</title>
+    <title>KSA Halloween: Form</title>
     <link rel="stylesheet" href="form.css">
+    <link rel="icon" href="logo.png">
 </head>
 <body>
-    <div>
-        <h1>
-            Call me KSA
-        </h1>
-        <hr class="rounded" />
+    <div class="container">
+        <div class="header">
+            <h1>
+                Call Me KSA
+            </h1>    
+        </div>
+        <div class="progress_bar" >
+            <div id="progress_done" class="progress_done"></div>
+            <div id="progress_up" class="progress_up"></div>
+        </div>
+        <div id="welcome_container" class="welcome_container">
+            <h2>Welcome to Call Me KSA</h2>
+            <div class="text"><strong>Sign up for call me KSA</strong>.</div>
+            <div class="text"><strong>How it works:</strong> Call me KSA is a people matching game. You <strong>set up a profile</strong> answering some questions in this form. Your's and the profiles of other people will be <strong>shown</strong> at the Call Me KSA booth at the Halloween Party. There you can <strong>unlock the contact details</strong> of up to 3 random person. Now you can contact them and <strong>find some new friends!</strong></div>
+            <div class="progress_bar">
+                <div class="progress_done" style="width: 30%;"></div>
+                <div class="progress_up" style="width: 70%;"></div>
+            </div>
+            <div class="text">The Progressbar under the heading will show you how much ot the profile you alredy filled out and how much is left</div>
+            <div class="text"><strong>It takes about 5 min!</strong></div>
+        </div>
         <form id="form" name = "form" autocomplete="off" onsubmit="return checkInputValues()" action="https://knu.dasistjaabsolutnichtmehrinmo.de/post.php" method="post" >
-            <h3 id="error"></h3>
-            <div id="first_name_container" class="input-container">
-                <label for="html">First Name</label><br>
-                <input  id="first_name" name="first_name"></input>
-            </div>
-            <div id="last_name_container" class="input-container">
-                <label for="html">Last Name</label><br>
-                <input id="last_name" name="last_name"></input>
-            </div>
-            <div id="birthday_container" class="input-container invisible">
-                <label for="html">Birthday</label><br>
-                <input id="birthday" name="birthday" type="date"></input>
-            </div>
-            <div id="nationality_container" class="input-container invisible">
-                <label for="html">Nationality</label><br>
-                <div class="checkbox" >
-                    <div>
-                        <input id="korean_checkbox" type="checkbox">
-                        <label>Korea</label>
-                    </div>
-                    <div>
-                        <input id="international_checkbox" type="checkbox">
-                        <label>International</label>
-                    </div>
+            <div id="formfield_container" class="invisible">
+                <h3 id="error" class="invisible"></h3>
+                <div id="first_name_container" class="input-container invisible">
+                    <div class="text">First of all you have to enter some <strong>basic information</strong> about yourself</div>
+                    <label for="html">First Name | 이름</label><br>
+                    <input  id="first_name" name="first_name"></input>
                 </div>
-                <input id="nationality" class="invisible" name="nationality"></input>
-            </div>
-            <div id="mbti_container" class="input-container invisible">
-                <label for="html">MBTI</label><br>
-                <input id="mbti" name="mbti"></input>
-            </div>
-            <div id="hobby_container" class="input-container invisible">
-                <label for="html">Hobbys</label><br>
-                <input id="hobby_1" name="hobby_1"></input>
-                <input id="hobby_2" name="hobby_2"></input>
-                <input id="hobby_3" name="hobby_3"></input>
-            </div>
-            <div id="language_container" class="input-container invisible">
-                <label for="html">Languages</label><br>
-                <input id="language_1" name="language_1"></input>
-                <input id="language_2" name="language_2"></input>
-                <input id="language_3" name="language_3"></input>
-            </div>
-            <div id="question_1_container" class="input-container invisible">
-                <label for="html">Question 1</label><br>
-                <select name="question_1" id="question_1">
-                    <option class="question_1" value="1">Whould you rather fight 100 ducksize horses or one horse size duck?</option>
-                    <option class="question_2" value="2">What is your favorite Halloween costume?</option>
-                    <option class="question_3" value="3">What sports did you never do but really want to try?</option>
-                    <option class="question_4" value="4">What is your favorite cafe in Deagu</option>
-                    <option class="question_5" value="5">How many pillows do you sleep with?</option>
-                    <option class="question_6" value="6">If you had a warning label, what whould it say?</option>
-                    <option class="question_7" value="7">What is your favorite music artist/group?</option>
-                    <option class="question_8" value="8">What animal would you be?</option>
-                </select>
-                <input id="answer_1" name="answer_1"></input>
-            </div>
-            <div id="question_2_container" class="input-container invisible">
-                <label for="html">Question 2</label><br>
-                <select name="question_2" id="question_2">
-                    <option class="question_1" value="1">Whould you rather fight 100 ducksize horses or one horse size duck?</option>
-                    <option class="question_2" value="2">What is your favorite Halloween costume?</option>
-                    <option class="question_3" value="3">What sports did you never do but really want to try?</option>
-                    <option selected class="question_4" value="4">What is your favorite cafe in Deagu</option>
-                    <option class="question_5" value="5">How many pillows do you sleep with?</option>
-                    <option class="question_6" value="6">If you had a warning label, what whould it say?</option>
-                    <option class="question_7" value="7">What is your favorite music artist/group?</option>
-                    <option class="question_8" value="8">What animal would you be?</option>
-                  </select>
-                <input id="answer_2" name="answer_2"></input>
-            </div>
-            <div id="contact_insta_container" class="input-container invisible">
-                <label for="html">Instagram Id</label><br>
-                <input id="contact_insta" name="contact_insta"></input>
-            </div>
-            <div id="contact_kakao_container" class="input-container invisible">
-                <label for="html">Kakao Id</label><br>
-                <input id="contact_kakao" name="contact_kakao"></input>
-            </div>
-            <div id="user_code_container" class="input-container invisible">
-                <label for="html">User Code</label><br>
-                <input id="user_code" name="user_code" minlength="6"></input>
+                <div id="last_name_container" class="input-container invisible">
+                    <label for="html">Last Name | 성</label><br>
+                    <input id="last_name" name="last_name"></input>
+                </div>
+                <div id="birthday_container" class="input-container invisible">
+                    <label for="html">Birthday | 생신</label><br>
+                    <input id="birthday" name="birthday" type="date"></input>
+                </div>
+                <div id="nationality_container" class="input-container invisible">
+                    <label for="html">Nationality | 국적</label><br>
+                    <div class="checkbox" >
+                        <div>
+                            <input id="korean_checkbox" type="checkbox">
+                            <label>한국</label>
+                        </div>
+                        <div>
+                            <input id="international_checkbox" type="checkbox">
+                            <label>International</label>
+                        </div>
+                    </div>
+                    <input id="nationality" class="invisible" name="nationality" value="Korean"></input>
+                </div>
+                <div id="mbti_container" class="input-container invisible">
+                    <label for="html">MBTI</label><br>
+                    <input id="mbti" name="mbti"></input>
+                </div>
+                <div id="hobby_container" class="input-container invisible">
+                    <div class="text">Here you can write about your <strong>Hobbies</strong> and what <strong>Languages</strong> you speak. For Both, you can list up to three entries.</div>
+                    <label for="html">Hobbys | 취미</label><br>
+                    <input id="hobby_1" name="hobby_1"></input>
+                    <input id="hobby_2" name="hobby_2"></input>
+                    <input id="hobby_3" name="hobby_3"></input>
+                </div>
+                <div id="language_container" class="input-container invisible">
+                    <label for="html">Languages | 언어</label><br>
+                    <input id="language_1" name="language_1"></input>
+                    <input id="language_2" name="language_2"></input>
+                    <input id="language_3" name="language_3"></input>
+                </div>
+                <div id="question_1_container" class="input-container invisible">
+                    <div class="text">Here you can chose <strong>two questions</strong> and give a <strong>short Answer</strong> to it, to show a bit more of your personality</div>
+                    <label for="html">Question 1 | 의문 1</label><br>
+                    <select name="question_1" id="question_1">
+                        <option class="question_2" value="2">What is your favorite Halloween costume?</option>
+                        <option class="question_3" value="3">What sports did you never do but really want to try?</option>
+                        <option class="question_5" value="5">How many pillows do you sleep with?</option>
+                        <option class="question_6" value="6">If you had a warning label, what whould it say?</option>
+                        <option class="question_7" value="7">What is your favorite music artist/group?</option>
+                        <option class="question_8" value="8">What animal would you be?</option>
+                        <option class="question_1" value="1">Whould you rather fight 100 ducksize horses or one horse size duck?</option>
+                    </select>
+                    <input id="answer_1" name="answer_1"></input>
+                </div>
+                <div id="question_2_container" class="input-container invisible">
+                    <label for="html">Question 2 | 의문 2</label><br>
+                    <select name="question_2" id="question_2">
+                        <option class="question_3" value="3">What sports did you never do but really want to try?</option>
+                        <option selected class="question_4" value="4">What is your favorite cafe in Deagu</option>
+                        <option class="question_5" value="5">How many pillows do you sleep with?</option>
+                        <option class="question_6" value="6">If you had a warning label, what whould it say?</option>
+                        <option class="question_7" value="7">What is your favorite music artist/group?</option>
+                        <option class="question_8" value="8">What animal would you be?</option>
+                        <option class="question_1" value="1">Whould you rather fight 100 ducksize horses or one horse size duck?</option>
+                      </select>
+                    <input id="answer_2" name="answer_2"></input>
+                </div>
+                <div id="contact_insta_container" class="input-container invisible">
+                    <div class="text">Here you can give your <strong>user name</strong> to one or both of the <strong>social media</strong> plaftorm. This wil only be shown to the <strong>person unlocking your profile</strong> data.</div>
+                    <label for="html">Instagram Id</label><br>
+                    <input id="contact_insta" name="contact_insta"></input>
+                </div>
+                <div id="contact_kakao_container" class="input-container invisible">
+                    <label for="html">Kakao Id</label><br>
+                    <input id="contact_kakao" name="contact_kakao"></input>
+                </div>
+                <div id="user_code_container" class="input-container invisible">
+                    <div class="text">You will use this Code to <strong>unlock the contact data</strong> at the call me KSA booth at the Halloween party.<strong>Use something that you will remember</strong></div>
+                    <label for="html" >User Code | 코드</label><br>
+                    <input id="user_code" name="user_code" minlength="6" required></input>
+                </div>    
             </div>
             <div class="button_container">
                 <button
@@ -121,7 +143,7 @@
     <script>
 
         // declaration of variables
-        let index = 1;
+        let index = 0;
 
         // get data from url quary
         const params = new Proxy(new URLSearchParams(window.location.search), {
@@ -131,6 +153,7 @@
             if(params.error==="true") {
                 console.log(params.error)
                 document.getElementById("error").innerHTML = "The Usercode is already taken";
+                document.getElementById("error").className = "";
                 document.getElementById("user_code").className = document.getElementById("user_code").className + " error";
                 document.getElementById("first_name").value = params.first_name
                 document.getElementById("first_name").value = params.first_name
@@ -169,21 +192,23 @@
 
             //handles changing index
             function handleDOMChanges(index) {
+                index === 0 ? document.getElementById("welcome_container").className = "welcome_container" :  document.getElementById("welcome_container").className = document.getElementById("welcome_container").className + " invisible"
+                index !== 0 ? document.getElementById("formfield_container").className = "" :  document.getElementById("formfield_container").className = document.getElementById("formfield_container").className + " invisible"
                 index === 1 ? document.getElementById("first_name_container").className = "input-container" :  document.getElementById("first_name_container").className = document.getElementById("first_name_container").className + " invisible"
                 index === 1 ? document.getElementById("last_name_container").className = "input-container" :  document.getElementById("last_name_container").className = document.getElementById("last_name_container").className + " invisible"
-                index === 2 ? document.getElementById("birthday_container").className = "input-container" :  document.getElementById("birthday_container").className = document.getElementById("birthday_container").className + " invisible"
-                index === 2 ? document.getElementById("nationality_container").className = "input-container" :  document.getElementById("nationality_container").className = document.getElementById("nationality_container").className + " invisible"
-                index === 2 ? document.getElementById("mbti_container").className = "input-container" :  document.getElementById("mbti_container").className = document.getElementById("mbti_container").className + " invisible"
-                index === 3 ? document.getElementById("hobby_container").className = "input-container" :  document.getElementById("hobby_container").className = document.getElementById("hobby_container").className + " invisible"
-                index === 3 ? document.getElementById("language_container").className = "input-container" :  document.getElementById("language_container").className = document.getElementById("language_container").className + " invisible"
-                index === 4 ? document.getElementById("question_1_container").className = "input-container" :  document.getElementById("question_1_container").className = document.getElementById("question_1_container").className + " invisible"
-                index === 4 ? document.getElementById("question_2_container").className = "input-container" :  document.getElementById("question_2_container").className = document.getElementById("question_2_container").className + " invisible"
-                index === 5 ? document.getElementById("contact_insta_container").className = "input-container" :  document.getElementById("contact_insta_container").className = document.getElementById("contact_insta_container").className + " invisible"
-                index === 5 ? document.getElementById("contact_kakao_container").className = "input-container" :  document.getElementById("contact_kakao_container").className = document.getElementById("contact_kakao_container").className + " invisible"
-                index === 6 ? document.getElementById("user_code_container").className = "input-container" : document.getElementById("user_code_container").className = document.getElementById("user_code_container").className + " invisible"
-                index !== 1 ? document.getElementById("prev_button").className = "" :  document.getElementById("prev_button").className = document.getElementById("prev_button").className + " invisible"
-                index !== 6 ? document.getElementById("next_button").className = "" :  document.getElementById("next_button").className = document.getElementById("next_button").className + " invisible"
-                index === 6 ? document.getElementById("submit_button").className = "" :  document.getElementById("submit_button").className = document.getElementById("submit_button").className + " invisible"
+                index === 1 ? document.getElementById("birthday_container").className = "input-container" :  document.getElementById("birthday_container").className = document.getElementById("birthday_container").className + " invisible"
+                index === 1 ? document.getElementById("nationality_container").className = "input-container" :  document.getElementById("nationality_container").className = document.getElementById("nationality_container").className + " invisible"
+                index === 1 ? document.getElementById("mbti_container").className = "input-container" :  document.getElementById("mbti_container").className = document.getElementById("mbti_container").className + " invisible"
+                index === 2 ? document.getElementById("hobby_container").className = "input-container" :  document.getElementById("hobby_container").className = document.getElementById("hobby_container").className + " invisible"
+                index === 2 ? document.getElementById("language_container").className = "input-container" :  document.getElementById("language_container").className = document.getElementById("language_container").className + " invisible"
+                index === 3 ? document.getElementById("question_1_container").className = "input-container" :  document.getElementById("question_1_container").className = document.getElementById("question_1_container").className + " invisible"
+                index === 3 ? document.getElementById("question_2_container").className = "input-container" :  document.getElementById("question_2_container").className = document.getElementById("question_2_container").className + " invisible"
+                index === 4 ? document.getElementById("contact_insta_container").className = "input-container" :  document.getElementById("contact_insta_container").className = document.getElementById("contact_insta_container").className + " invisible"
+                index === 4 ? document.getElementById("contact_kakao_container").className = "input-container" :  document.getElementById("contact_kakao_container").className = document.getElementById("contact_kakao_container").className + " invisible"
+                index === 5 ? document.getElementById("user_code_container").className = "input-container" : document.getElementById("user_code_container").className = document.getElementById("user_code_container").className + " invisible"
+                index !== 0 ? document.getElementById("prev_button").className = "" :  document.getElementById("prev_button").className = document.getElementById("prev_button").className + " invisible"
+                index !== 5 ? document.getElementById("next_button").className = "" :  document.getElementById("next_button").className = document.getElementById("next_button").className + " invisible"
+                index === 5 ? document.getElementById("submit_button").className = "" :  document.getElementById("submit_button").className = document.getElementById("submit_button").className + " invisible"
             }
 
             function validateInputValues(id){
@@ -194,18 +219,31 @@
                     return false
                 }else if (document.getElementById(id).className.includes("error")) {
                     document.getElementById(id).classList.remove("error")
+                    document.getElementById("error").className = "invisible";
                 }
                 return true
             }
 
             function validateInputLength(length, id){
-                console.log(document.getElementById(id).value.length)
                 if(document.getElementById(id).value.length > length) {
                     document.getElementById(id).className = document.getElementById(id).className + " error"
                     document.getElementById(id).focus()
                     return false
                 }else if (document.getElementById(id).className.includes("error")) {
                     document.getElementById(id).classList.remove("error")
+                    document.getElementById("error").className = "invisible";
+                }
+                return true
+            }
+
+            function validateFieldFilled(id){
+                if(document.getElementById(id).value.length < 1) {
+                    document.getElementById(id).className = document.getElementById(id).className + " error"
+                    document.getElementById(id).focus()
+                    return false
+                }else if (document.getElementById(id).className.includes("error")) {
+                    document.getElementById(id).classList.remove("error")
+                    document.getElementById("error").className = "invisible";
                 }
                 return true
             }
@@ -215,13 +253,11 @@
                 if(index === 1) {
                     if(validateInputValues("last_name")===false) result = false
                     if(validateInputValues("first_name")===false) result = false
-                }
-                if(index === 2) {
                     if(validateInputValues("birthday")===false) result = false
                     if(validateInputValues("nationality")===false) result = false
                     if(validateInputValues("mbti")===false) result = false
                 }
-                if(index === 3) {
+                if(index === 2) {
                     if(validateInputValues("hobby_1")===false) result = false
                     if(validateInputValues("hobby_2")===false) result = false
                     if(validateInputValues("hobby_3")===false) result = false
@@ -229,15 +265,15 @@
                     if(validateInputValues("language_2")===false) result = false
                     if(validateInputValues("language_3")===false) result = false
                 }
-                if(index === 4) {
+                if(index === 3) {
                     if(validateInputValues("answer_1")===false) result = false
                     if(validateInputValues("answer_2")===false) result = false
                 }
-                if(index === 5) {
+                if(index === 4) {
                     if(validateInputValues("contact_insta")===false) result = false
                     if(validateInputValues("contact_kakao")===false) result = false
                 }
-                if(index === 6) {
+                if(index === 5) {
                     if(validateInputValues("user_code")===false) result = false
                 }
                 return result
@@ -246,48 +282,68 @@
             function checkInputLength(){
                 let result = true
                 if(index === 1) {
-                    if(validateInputLength(10,"last_name")===false) result = false
-                    if(validateInputLength(10,"first_name")===false) result = false
-                }
-                if(index === 2) {
-                    if(validateInputLength(10,"nationality")===false) result = false
+                    if(validateInputLength(20,"last_name")===false) result = false
+                    if(validateInputLength(20,"first_name")===false) result = false
+                    if(validateInputLength(20,"nationality")===false) result = false
                     if(validateInputLength(10,"mbti")===false) result = false
                 }
+                if(index === 2) {
+                    if(validateInputLength(30,"hobby_1")===false) result = false
+                    if(validateInputLength(30,"hobby_2")===false) result = false
+                    if(validateInputLength(30,"hobby_3")===false) result = false
+                    if(validateInputLength(30,"language_1")===false) result = false
+                    if(validateInputLength(30,"language_2")===false) result = false
+                    if(validateInputLength(30,"language_3")===false) result = false
+                }
                 if(index === 3) {
-                    if(validateInputLength(15,"hobby_1")===false) result = false
-                    if(validateInputLength(15,"hobby_2")===false) result = false
-                    if(validateInputLength(15,"hobby_3")===false) result = false
-                    if(validateInputLength(15,"language_1")===false) result = false
-                    if(validateInputLength(15,"language_2")===false) result = false
-                    if(validateInputLength(15,"language_3")===false) result = false
+                    if(validateInputLength(100,"answer_1")===false) result = false
+                    if(validateInputLength(100,"answer_2")===false) result = false
                 }
                 if(index === 4) {
-                    if(validateInputLength(50,"answer_1")===false) result = false
-                    if(validateInputLength(50,"answer_2")===false) result = false
+                    if(validateInputLength(100,"contact_insta")===false) result = false
+                    if(validateInputLength(100,"contact_kakao")===false) result = false
                 }
                 if(index === 5) {
-                    if(validateInputLength(50,"contact_insta")===false) result = false
-                    if(validateInputLength(50,"contact_kakao")===false) result = false
-                }
-                if(index === 6) {
                     if(validateInputLength(10,"user_code")===false) result = false
                 }
                 return result
             }
 
+            function checkFieldFilled(){
+                let result = true
+                if(index === 1) {
+                    if(validateFieldFilled("last_name") === false) result = false
+                    if(validateFieldFilled("first_name") === false) result = false
+                    if(document.getElementById("korean_checkbox").checked  === false && document.getElementById("nationality").value === "Korean") result = false
+                }
+                if(index === 4) {
+                    if(validateFieldFilled("contact_insta") === false && validateFieldFilled("contact_kakao") === false) result = false
+                }
+                return result
+            }
 
+            function setProgressBar(index) {
+                document.getElementById("progress_done").style.width = `${index*18+5}%`
+                document.getElementById("progress_up").style.width = `${100-(index*18+5)}%`
+            }
 
             //navigate throug profile
             function handleNext(event) {
                 event.preventDefault()
-                
                 if(!checkInputLength()) {
-                    document.getElementById("error").innerHTML += "Check the length of your input";
+                    document.getElementById("error").innerHTML = "The Input is to long";
+                    document.getElementById("error").className = "";
                 } else if(!checkInputValues()) {
-                    document.getElementById("error").innerHTML = "Only a-z, 0-9 and . , - _ are allowed";
+                    document.getElementById("error").innerHTML = "Only use a-z, 0-9 and , . _ - as input";
+                    document.getElementById("error").className = "";
+                } else if (!checkFieldFilled()) {
+                    document.getElementById("error").innerHTML = "Please fill the fields.";
+                    document.getElementById("error").className = "";
                 } else {
                     index = index + 1
                     handleDOMChanges(index)
+                    setProgressBar(index)
+                    document.getElementById("error").innerHTML = "";
                 }
                 console.log(index)
                 return null
@@ -299,6 +355,7 @@
                 event.preventDefault()
                 index--
                 handleDOMChanges(index)
+                setProgressBar(index)
                 console.log(index)
                 return null
             }
@@ -313,6 +370,7 @@
                 }
             }, false)
             document.getElementById("international_checkbox").addEventListener("click",()=>{
+                console.log()
                 document.getElementById("international_checkbox").checked === true ? document.getElementById("korean_checkbox").checked = false : document.getElementById("international_checkbox").checked = true
                 if(document.getElementById("international_checkbox").checked === true && document.getElementById("nationality").value === "Korean") {
                     document.getElementById("nationality").value = ""
@@ -324,14 +382,14 @@
                 const current_value = element.value
                 const value = document.getElementById("question_1").value
                 element.innerHTML =
-                    `${value !== "1" && `<option class="question_1" value="1">Whould you rather fight 100 ducksize horses or one horse size duck?</option>`}
-                    ${value !== "2" && `<option class="question_2" value="2">What is your favorite Halloween costume?</option>`}
+                    `${value !== "2" && `<option class="question_2" value="2">What is your favorite Halloween costume?</option>`}
                     ${value !== "3" && `<option class="question_3" value="3">What sports did you never do but really want to try?</option>`}
                     ${value !== "4" && `<option class="question_4" value="4">What is your favorite cafe in Deagu</option>`}
                     ${value !== "5" && `<option class="question_5" value="5">How many pillows do you sleep with?</option>`}
                     ${value !== "6" && `<option class="question_6" value="6">If you had a warning label, what whould it say?</option>`}
                     ${value !== "7" && `<option class="question_7" value="7">What is your favorite music artist/group?</option>`}
-                    ${value !== "8" && `<option class="question_8" value="8">What animal would you be?</option>`}`
+                    ${value !== "8" && `<option class="question_8" value="8">What animal would you be?</option>`}
+                    ${value !== "1" && `<option class="question_1" value="1">Whould you rather fight 100 ducksize horses or one horse size duck?</option>`}`
                 element.value = current_value
             }, false)
 
@@ -340,14 +398,14 @@
                 const current_value = element.value
                 const value = document.getElementById("question_2").value
                 element.innerHTML =
-                    `${value !== "1" && `<option class="question_1" value="1">Whould you rather fight 100 ducksize horses or one horse size duck?</option>`}
-                    ${value !== "2" && `<option class="question_2" value="2">What is your favorite Halloween costume?</option>`}
+                `${value !== "2" && `<option class="question_2" value="2">What is your favorite Halloween costume?</option>`}
                     ${value !== "3" && `<option class="question_3" value="3">What sports did you never do but really want to try?</option>`}
                     ${value !== "4" && `<option class="question_4" value="4">What is your favorite cafe in Deagu</option>`}
                     ${value !== "5" && `<option class="question_5" value="5">How many pillows do you sleep with?</option>`}
                     ${value !== "6" && `<option class="question_6" value="6">If you had a warning label, what whould it say?</option>`}
                     ${value !== "7" && `<option class="question_7" value="7">What is your favorite music artist/group?</option>`}
-                    ${value !== "8" && `<option class="question_8" value="8">What animal would you be?</option>`}`
+                    ${value !== "8" && `<option class="question_8" value="8">What animal would you be?</option>`}
+                    ${value !== "1" && `<option class="question_1" value="1">Whould you rather fight 100 ducksize horses or one horse size duck?</option>`}`
                 element.value = current_value
             }, false)
 

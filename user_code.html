@@ -4,19 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Show User Code</title>
+    <title>KSA Halloween: User Code</title>
     <link rel="stylesheet" href="form.css">
+    <link rel="icon" href="logo.png">
 </head>
 <body>
-    <h1>
-        Call me KSA
-    </h1>
-    <h1 id="user_id"></h1>
+    <div class="container">
+        <div class="header">
+            <h1>
+                Call Me KSA
+            </h1>    
+        </div>
+        <div class="progress_bar" >
+            <div id="progress_done" class="progress_done" style="width: 100%; border-radius: 3px;"></div>
+            <div id="progress_up" class="progress_up" style="width: 0;"></div>
+        </div>
+        <div id="formfield_container">
+            <div>
+                <div class="text" style="font-size: 18px; font-weight: bold;">Your user code is:</div>
+                <h1 id="user_id" style="margin: 5px; padding: 0;"></h1>
+                <div class="text">Take a <strong>screenshot</strong> of this and bring it to the Halloween Party. There you can add a picture to your profile and find new friends at the Call Me KSA booth</div>
+                <button id="print">Capture</button>  
+            </div>
+        </div>
+    </div>
     <script>
         const params = new Proxy(new URLSearchParams(window.location.search), {
             get: (searchParams, prop) => searchParams.get(prop),
             });
         document.getElementById("user_id").innerHTML = params.usercode;
+
+        document.getElementById("print").addEventListener("click",(e)=> {
+            e.preventDefault()
+            window.print()
+        },false)
     </script>
 </body>
 </html>
