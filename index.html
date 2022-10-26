@@ -13,7 +13,7 @@
             Call me KSA
         </h1>
         <hr class="rounded" />
-        <form id="form" name = "form" autocomplete="off" onSubmit="return ValidateActInsert()" action="https://knu.dasistjaabsolutnichtmehrinmo.de/post.php" method="post" >
+        <form id="form" name = "form" autocomplete="off" onsubmit="return checkInputValues()" action="https://knu.dasistjaabsolutnichtmehrinmo.de/post.php" method="post" >
             <h3 id="error"></h3>
             <div id="first_name_container" class="input-container">
                 <label for="html">First Name</label><br>
@@ -25,11 +25,21 @@
             </div>
             <div id="birthday_container" class="input-container invisible">
                 <label for="html">Birthday</label><br>
-                <input id="birthday" name="birthday"></input>
+                <input id="birthday" name="birthday" type="date"></input>
             </div>
             <div id="nationality_container" class="input-container invisible">
                 <label for="html">Nationality</label><br>
-                <input id="nationality" name="nationality"></input>
+                <div class="checkbox" >
+                    <div>
+                        <input id="korean_checkbox" type="checkbox">
+                        <label>Korea</label>
+                    </div>
+                    <div>
+                        <input id="international_checkbox" type="checkbox">
+                        <label>International</label>
+                    </div>
+                </div>
+                <input id="nationality" class="invisible" name="nationality"></input>
             </div>
             <div id="mbti_container" class="input-container invisible">
                 <label for="html">MBTI</label><br>
@@ -50,20 +60,28 @@
             <div id="question_1_container" class="input-container invisible">
                 <label for="html">Question 1</label><br>
                 <select name="question_1" id="question_1">
-                    <option value="1">What is your favorite Halloween Costume?</option>
-                    <option value="2">What is your favorite Halloween Costume?</option>
-                    <option value="3">What is your favorite Halloween Costume?</option>
-                    <option value="4">What is your favorite Halloween Costume?</option>
+                    <option class="question_1" value="1">Whould you rather fight 100 ducksize horses or one horse size duck?</option>
+                    <option class="question_2" value="2">What is your favorite Halloween costume?</option>
+                    <option class="question_3" value="3">What sports did you never do but really want to try?</option>
+                    <option class="question_4" value="4">What is your favorite cafe in Deagu</option>
+                    <option class="question_5" value="5">How many pillows do you sleep with?</option>
+                    <option class="question_6" value="6">If you had a warning label, what whould it say?</option>
+                    <option class="question_7" value="7">What is your favorite music artist/group?</option>
+                    <option class="question_8" value="8">What animal would you be?</option>
                 </select>
                 <input id="answer_1" name="answer_1"></input>
             </div>
             <div id="question_2_container" class="input-container invisible">
                 <label for="html">Question 2</label><br>
                 <select name="question_2" id="question_2">
-                    <option value="1">Whould you rather fight 100 ducksize <br> horses or one horse size duck</option>
-                    <option value="2">Saab</option>
-                    <option value="3">Mercedes</option>
-                    <option value="4">Audi</option>
+                    <option class="question_1" value="1">Whould you rather fight 100 ducksize horses or one horse size duck?</option>
+                    <option class="question_2" value="2">What is your favorite Halloween costume?</option>
+                    <option class="question_3" value="3">What sports did you never do but really want to try?</option>
+                    <option selected class="question_4" value="4">What is your favorite cafe in Deagu</option>
+                    <option class="question_5" value="5">How many pillows do you sleep with?</option>
+                    <option class="question_6" value="6">If you had a warning label, what whould it say?</option>
+                    <option class="question_7" value="7">What is your favorite music artist/group?</option>
+                    <option class="question_8" value="8">What animal would you be?</option>
                   </select>
                 <input id="answer_2" name="answer_2"></input>
             </div>
@@ -77,22 +95,22 @@
             </div>
             <div id="user_code_container" class="input-container invisible">
                 <label for="html">User Code</label><br>
-                <input id="user_code" name="user_code" value="123456" ></input>
+                <input id="user_code" name="user_code" minlength="6"></input>
             </div>
             <div class="button_container">
-                <button 
-                    type="button" 
+                <button
+                    type="button"
                     class="invisible"
                     id="prev_button"
                     >Previous
                 </button>
-                <button 
-                    type="button" 
+                <button
+                    type="button"
                     id="next_button"
                     >Next
                 </button>
-                <button 
-                    type="submit" 
+                <button
+                    type="submit"
                     class="invisible"
                     id="submit_button"
                     >Submit
@@ -147,14 +165,14 @@
                     return false;
                 }
                 return (true);
-            }   
+            }
 
             //handles changing index
             function handleDOMChanges(index) {
                 index === 1 ? document.getElementById("first_name_container").className = "input-container" :  document.getElementById("first_name_container").className = document.getElementById("first_name_container").className + " invisible"
                 index === 1 ? document.getElementById("last_name_container").className = "input-container" :  document.getElementById("last_name_container").className = document.getElementById("last_name_container").className + " invisible"
                 index === 2 ? document.getElementById("birthday_container").className = "input-container" :  document.getElementById("birthday_container").className = document.getElementById("birthday_container").className + " invisible"
-                index === 2? document.getElementById("nationality_container").className = "input-container" :  document.getElementById("nationality_container").className = document.getElementById("nationality_container").className + " invisible"
+                index === 2 ? document.getElementById("nationality_container").className = "input-container" :  document.getElementById("nationality_container").className = document.getElementById("nationality_container").className + " invisible"
                 index === 2 ? document.getElementById("mbti_container").className = "input-container" :  document.getElementById("mbti_container").className = document.getElementById("mbti_container").className + " invisible"
                 index === 3 ? document.getElementById("hobby_container").className = "input-container" :  document.getElementById("hobby_container").className = document.getElementById("hobby_container").className + " invisible"
                 index === 3 ? document.getElementById("language_container").className = "input-container" :  document.getElementById("language_container").className = document.getElementById("language_container").className + " invisible"
@@ -167,18 +185,116 @@
                 index !== 6 ? document.getElementById("next_button").className = "" :  document.getElementById("next_button").className = document.getElementById("next_button").className + " invisible"
                 index === 6 ? document.getElementById("submit_button").className = "" :  document.getElementById("submit_button").className = document.getElementById("submit_button").className + " invisible"
             }
-            
+
+            function validateInputValues(id){
+                var specialChars = /[^a-zA-Z0-9.,-_ ]/g;
+                if(document.getElementById(id).value.match(specialChars)){
+                    document.getElementById(id).className = document.getElementById(id).className + " error"
+                    document.getElementById(id).focus()
+                    return false
+                }else if (document.getElementById(id).className.includes("error")) {
+                    document.getElementById(id).classList.remove("error")
+                }
+                return true
+            }
+
+            function validateInputLength(length, id){
+                console.log(document.getElementById(id).value.length)
+                if(document.getElementById(id).value.length > length) {
+                    document.getElementById(id).className = document.getElementById(id).className + " error"
+                    document.getElementById(id).focus()
+                    return false
+                }else if (document.getElementById(id).className.includes("error")) {
+                    document.getElementById(id).classList.remove("error")
+                }
+                return true
+            }
+
+            function checkInputValues(){
+                let result = true
+                if(index === 1) {
+                    if(validateInputValues("last_name")===false) result = false
+                    if(validateInputValues("first_name")===false) result = false
+                }
+                if(index === 2) {
+                    if(validateInputValues("birthday")===false) result = false
+                    if(validateInputValues("nationality")===false) result = false
+                    if(validateInputValues("mbti")===false) result = false
+                }
+                if(index === 3) {
+                    if(validateInputValues("hobby_1")===false) result = false
+                    if(validateInputValues("hobby_2")===false) result = false
+                    if(validateInputValues("hobby_3")===false) result = false
+                    if(validateInputValues("language_1")===false) result = false
+                    if(validateInputValues("language_2")===false) result = false
+                    if(validateInputValues("language_3")===false) result = false
+                }
+                if(index === 4) {
+                    if(validateInputValues("answer_1")===false) result = false
+                    if(validateInputValues("answer_2")===false) result = false
+                }
+                if(index === 5) {
+                    if(validateInputValues("contact_insta")===false) result = false
+                    if(validateInputValues("contact_kakao")===false) result = false
+                }
+                if(index === 6) {
+                    if(validateInputValues("user_code")===false) result = false
+                }
+                return result
+            }
+
+            function checkInputLength(){
+                let result = true
+                if(index === 1) {
+                    if(validateInputLength(10,"last_name")===false) result = false
+                    if(validateInputLength(10,"first_name")===false) result = false
+                }
+                if(index === 2) {
+                    if(validateInputLength(10,"nationality")===false) result = false
+                    if(validateInputLength(10,"mbti")===false) result = false
+                }
+                if(index === 3) {
+                    if(validateInputLength(15,"hobby_1")===false) result = false
+                    if(validateInputLength(15,"hobby_2")===false) result = false
+                    if(validateInputLength(15,"hobby_3")===false) result = false
+                    if(validateInputLength(15,"language_1")===false) result = false
+                    if(validateInputLength(15,"language_2")===false) result = false
+                    if(validateInputLength(15,"language_3")===false) result = false
+                }
+                if(index === 4) {
+                    if(validateInputLength(50,"answer_1")===false) result = false
+                    if(validateInputLength(50,"answer_2")===false) result = false
+                }
+                if(index === 5) {
+                    if(validateInputLength(50,"contact_insta")===false) result = false
+                    if(validateInputLength(50,"contact_kakao")===false) result = false
+                }
+                if(index === 6) {
+                    if(validateInputLength(10,"user_code")===false) result = false
+                }
+                return result
+            }
+
+
+
             //navigate throug profile
             function handleNext(event) {
                 event.preventDefault()
-                  index = index + 1
-                handleDOMChanges(index)
+                
+                if(!checkInputLength()) {
+                    document.getElementById("error").innerHTML += "Check the length of your input";
+                } else if(!checkInputValues()) {
+                    document.getElementById("error").innerHTML = "Only a-z, 0-9 and . , - _ are allowed";
+                } else {
+                    index = index + 1
+                    handleDOMChanges(index)
+                }
                 console.log(index)
                 return null
             }
 
             document.getElementById("next_button").addEventListener("click", handleNext, false)
-            
+
             function handlePrevious(event) {
                 event.preventDefault()
                 index--
@@ -189,9 +305,57 @@
 
             document.getElementById("prev_button").addEventListener("click", handlePrevious, false)
 
+            document.getElementById("korean_checkbox").addEventListener("click",()=>{
+                document.getElementById("korean_checkbox").checked === true ? document.getElementById("international_checkbox").checked = false : document.getElementById("korean_checkbox").checked = true
+                if(document.getElementById("korean_checkbox").checked === true) {
+                    document.getElementById("nationality").classList = "invisible"
+                    document.getElementById("nationality").value = "Korean"
+                }
+            }, false)
+            document.getElementById("international_checkbox").addEventListener("click",()=>{
+                document.getElementById("international_checkbox").checked === true ? document.getElementById("korean_checkbox").checked = false : document.getElementById("international_checkbox").checked = true
+                if(document.getElementById("international_checkbox").checked === true && document.getElementById("nationality").value === "Korean") {
+                    document.getElementById("nationality").value = ""
+                    document.getElementById("nationality").classList = ""
+                }
+            }, false)
+            document.getElementById("question_1").addEventListener("click", ()=>{
+                const element = document.getElementById("question_2")
+                const current_value = element.value
+                const value = document.getElementById("question_1").value
+                element.innerHTML =
+                    `${value !== "1" && `<option class="question_1" value="1">Whould you rather fight 100 ducksize horses or one horse size duck?</option>`}
+                    ${value !== "2" && `<option class="question_2" value="2">What is your favorite Halloween costume?</option>`}
+                    ${value !== "3" && `<option class="question_3" value="3">What sports did you never do but really want to try?</option>`}
+                    ${value !== "4" && `<option class="question_4" value="4">What is your favorite cafe in Deagu</option>`}
+                    ${value !== "5" && `<option class="question_5" value="5">How many pillows do you sleep with?</option>`}
+                    ${value !== "6" && `<option class="question_6" value="6">If you had a warning label, what whould it say?</option>`}
+                    ${value !== "7" && `<option class="question_7" value="7">What is your favorite music artist/group?</option>`}
+                    ${value !== "8" && `<option class="question_8" value="8">What animal would you be?</option>`}`
+                element.value = current_value
+            }, false)
+
+            document.getElementById("question_2").addEventListener("click", ()=>{
+                const element = document.getElementById("question_1")
+                const current_value = element.value
+                const value = document.getElementById("question_2").value
+                element.innerHTML =
+                    `${value !== "1" && `<option class="question_1" value="1">Whould you rather fight 100 ducksize horses or one horse size duck?</option>`}
+                    ${value !== "2" && `<option class="question_2" value="2">What is your favorite Halloween costume?</option>`}
+                    ${value !== "3" && `<option class="question_3" value="3">What sports did you never do but really want to try?</option>`}
+                    ${value !== "4" && `<option class="question_4" value="4">What is your favorite cafe in Deagu</option>`}
+                    ${value !== "5" && `<option class="question_5" value="5">How many pillows do you sleep with?</option>`}
+                    ${value !== "6" && `<option class="question_6" value="6">If you had a warning label, what whould it say?</option>`}
+                    ${value !== "7" && `<option class="question_7" value="7">What is your favorite music artist/group?</option>`}
+                    ${value !== "8" && `<option class="question_8" value="8">What animal would you be?</option>`}`
+                element.value = current_value
+            }, false)
 
 
-       
+
+
+
+
     </script>
 </body>
 </html>

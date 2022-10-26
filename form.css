@@ -74,6 +74,10 @@ select div {
 .error {
     border-color: red !important;
 }
+.error:focus{
+    outline: none !important;
+    border-color: red !important;
+}
 
 .invisible {
     opacity: 0;
@@ -82,4 +86,23 @@ select div {
     margin: 0;
     padding: 0;
     z-index: -1;
+    border: none;
+}
+
+.checkbox {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+}
+.checkbox div {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.checkbox input {
+    width: 25px;
+    height: 25px;
+    border-radius: 15px;
+    margin-right: 10px;
 }
